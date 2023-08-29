@@ -3,7 +3,7 @@
 npx create-next-app --tailwind myblog --use-npm
 ```
 
-# Commit Prefix
+## Commit Prefix
 |  Prefix  | Meaning |
 | -------- | ------- |
 | feat     | 新機能   |
