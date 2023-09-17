@@ -15,22 +15,24 @@ export default async function Article({ params }: Props) {
       <h1 className="text-4xl mb-6 text-center">{data.title}</h1>
       <p className="mb-10 text-[#999] text-center">{data.description}</p>
       <div className="flex items-center mb-10 sm:mb-16 text-sm sm:text-base">
-        <div className="flex justify-center items-center border-r border-solid border-[#ccc] pr-6 sm:pr-10 mr-6 sm:mr-10">
-          <picture>
-            <source
-              type="image/webp"
-              srcSet={`${data.writer?.image?.url}?fm=webp&fit=crop&w=48&h=48 1x, ${data.writer?.image?.url}?fm=webp&fit=crop&w=48&h=48&dpr=2 2x`}
-            />
-            <img
-              src={data.writer?.image?.url}
-              alt=""
-              className="block w-[32px] sm:w-[48px] h-[32px] sm:h-[48px] rounded-full"
-              width={data.writer?.image?.width}
-              height={data.writer?.image?.height}
-            />
-          </picture>
-          <span className="ml-4">{data.writer?.name}</span>
-        </div>
+        {data.writer && (
+          <div className="flex justify-center items-center border-r border-solid border-[#ccc] pr-6 sm:pr-10 mr-6 sm:mr-10">
+            <picture>
+              <source
+                type="image/webp"
+                srcSet={`${data.writer?.image?.url}?fm=webp&fit=crop&w=48&h=48 1x, ${data.writer?.image?.url}?fm=webp&fit=crop&w=48&h=48&dpr=2 2x`}
+              />
+              <img
+                src={data.writer?.image?.url}
+                alt=""
+                className="block w-[32px] sm:w-[48px] h-[32px] sm:h-[48px] rounded-full"
+                width={data.writer?.image?.width}
+                height={data.writer?.image?.height}
+              />
+            </picture>
+            <span className="ml-4">{data.writer?.name}</span>
+          </div>
+        )}
         <div>
           <time>{formatDate(data.publishedAt || data.createdAt)}</time>
         </div>
