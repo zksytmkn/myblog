@@ -5,9 +5,17 @@ import { formatDate } from '@/libs/utils'
 import { getList } from '@/libs/microcms'
 import Pagination from '@/components/pagination'
 
-export default async function Page() {
+type Props = {
+  params: {
+    current: string
+  }
+}
+
+export default async function Page({ params }: Props) {
+  const current = parseInt(params.current as string, 10)
   const data = await getList({
     limit: LIMIT,
+    offset: LIMIT * (current - 1),
   })
 
   return (
@@ -57,7 +65,7 @@ export default async function Page() {
           </li>
         ))}
       </ul>
-      <Pagination totalCount={data.totalCount} />
+      <Pagination totalCount={data.totalCount} current={current} />
     </div>
   )
 }
