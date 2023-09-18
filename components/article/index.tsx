@@ -1,6 +1,6 @@
 import { type Article } from '@/libs/microcms'
 import { formatDate, formatRichText } from '@/libs/utils'
-import Tags from '../tags'
+import Tags from '@/components/tags'
 
 type Props = {
   data: Article

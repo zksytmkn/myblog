@@ -72,3 +72,16 @@ export const getDetail = async (
 
   return detailData
 }
+
+// タグの詳細を取得
+export const getTag = async (contentId: string, queries?: MicroCMSQueries) => {
+  const detailData = await client
+    .getListDetail<Tag>({
+      endpoint: 'tags',
+      contentId,
+      queries,
+    })
+    .catch(notFound)
+
+  return detailData
+}
