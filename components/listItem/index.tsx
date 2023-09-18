@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Article } from '@/libs/microcms'
 import { formatDate } from '@/libs/utils'
-import Tags from '../tags'
+import Tags from '@/components/tags'
 
 type Props = {
   article: Article
