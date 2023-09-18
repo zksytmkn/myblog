@@ -1,5 +1,6 @@
 import { type Article } from '@/libs/microcms'
 import { formatDate, formatRichText } from '@/libs/utils'
+import Tags from '../tags'
 
 type Props = {
   data: Article
@@ -9,7 +10,8 @@ export default function Article({ data }: Props) {
   return (
     <main className="flex flex-col justify-between items-center">
       <h1 className="text-4xl mb-6 text-center">{data.title}</h1>
-      <p className="mb-10 text-[#999] text-center">{data.description}</p>
+      <Tags tags={data.tags} />
+      <p className="my-6 mx-10 text-[#999] text-center">{data.description}</p>
       <div className="flex items-center mb-10 sm:mb-16 text-sm sm:text-base">
         {data.writer && (
           <div className="flex justify-center items-center border-r border-solid border-[#ccc] pr-6 sm:pr-10 mr-6 sm:mr-10">
@@ -56,44 +58,40 @@ export default function Article({ data }: Props) {
         [&_first-child]:mt-0
         [&>h1]:text-3xl
         [&>h1]:font-bold
-        [&>h1]:mt-11
+        [&>h1]:mt-9
         [&>h1]:mb-4
         [&>h1]:border-b
         [&>h1]:border-solid
         [&>h1]:border-[#ccc]
         [&>h2]:text-2xl
         [&>h2]:font-bold
-        [&>h2]:mt-11
+        [&>h2]:mt-9
         [&>h2]:mb-4
         [&>h3]:text-xl
         [&>h3]:font-bold
-        [&>h3]:mt-11
+        [&>h3]:mt-9
         [&>h3]:mb-4
         [&>h4]:text-lg
         [&>h4]:font-bold
-        [&>h4]:mt-11
+        [&>h4]:mt-9
         [&>h4]:mb-4
         [&>h5]:text-base
         [&>h5]:font-bold
-        [&>h5]:mt-11
+        [&>h5]:mt-9
         [&>h5]:mb-4
         [&>p]:mt-8
         [&>p]:mb-2
         [&>p]:leading-loose
+        [&>pre]:bg-[#f9f9f9]
+        [&>pre]:shadow-inner
+        [&>pre]:p-2
+        [&>pre]:rounded-sm
         [&>pre]:overflow-x-auto
         [&_pre>code]:block
         [&_pre>code]:overflow-x-auto
-        [&_pre>code]:bg-[#fafafa]
+        [&_pre>code]:bg-[#f7f7f7]
         [&_pre>code]:p-4
-        [&_div&.data-filename]:before:inline-block
-        [&_div&.data-filename]:before:bg-[#f3f3f3]
-        [&_div&.data-filename]:before:content-[attr(data-filename)]
-        [&_div&.data-filename]:before:font-mono
-        [&_div&.data-filename]:before:text-xs
-        [&_div&.data-filename]:before:py-1
-        [&_div&.data-filename]:before:px-4
-        [&_div&.data-filename]:before:rounded-tl-lg
-        [&_div&.data-filename]:before:rounded-tr-lg
+        [&_pre>code]:rounded-lg
         [&_ul]:my-2
         [&_ul]:ml-8
         [&_ol]:my-2
@@ -120,7 +118,7 @@ export default function Article({ data }: Props) {
         [&>hr]:border-none
         [&>table]:w-full
         [&>table]:my-8
-        [&>table th]:bg-[#f3f3f3]
+        [&>table th]:bg-[#f7f7f7]
         [&>table th]:text-left
         [&>table th]:p-4
         [&>table td]:text-left
