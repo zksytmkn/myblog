@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation'
 import { createClient } from 'microcms-js-sdk'
 import type {
   MicroCMSQueries,
@@ -47,10 +48,12 @@ export const client = createClient({
 
 // ブログ一覧を取得
 export const getList = async (queries?: MicroCMSQueries) => {
-  const listData = await client.getList<Blog>({
-    endpoint: 'blog',
-    queries,
-  })
+  const listData = await client
+    .getList<Blog>({
+      endpoint: 'blog',
+      queries,
+    })
+    .catch(notFound)
   return listData
 }
 
@@ -59,11 +62,13 @@ export const getDetail = async (
   contentId: string,
   queries?: MicroCMSQueries
 ) => {
-  const detailData = await client.getListDetail<Blog>({
-    endpoint: 'blog',
-    contentId,
-    queries,
-  })
+  const detailData = await client
+    .getListDetail<Blog>({
+      endpoint: 'blog',
+      contentId,
+      queries,
+    })
+    .catch(notFound)
 
   return detailData
 }
