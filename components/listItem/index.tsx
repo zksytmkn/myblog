@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Article } from '@/libs/microcms'
 import { formatDate } from '@/libs/utils'
+import Tags from '../tags'
 
 type Props = {
   article: Article
@@ -43,6 +44,9 @@ export default function ListItem({ article }: Props) {
           <dt className="text-xl sm:text-2xl mb-2 font-bold">
             {article.title}
           </dt>
+          <dd>
+            <Tags tags={article.tags} hasLink={false} />
+          </dd>
           <dd>{formatDate(article.publishedAt || article.createdAt)}</dd>
         </dl>
       </Link>
