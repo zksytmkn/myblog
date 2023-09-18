@@ -1,11 +1,17 @@
+import Link from 'next/link'
 import { LIMIT } from '@/constants'
 
 type Props = {
   totalCount: number
   current?: number
+  basePath?: string
 }
 
-export default function Pagination({ totalCount, current = 1 }: Props) {
+export default function Pagination({
+  totalCount,
+  current = 1,
+  basePath = '',
+}: Props) {
   const pages = Array.from({ length: Math.ceil(totalCount / LIMIT) }).map(
     (_, i) => i + 1
   )
@@ -14,12 +20,12 @@ export default function Pagination({ totalCount, current = 1 }: Props) {
       {pages.map((p) => (
         <li className="mx-1">
           {current !== p ? (
-            <a
-              href={`/p/${p}`}
+            <Link
+              href={`${basePath}/p/${p}`}
               className="flex justify-center items-center w-9 h-6 rounded"
             >
               {p}
-            </a>
+            </Link>
           ) : (
             <span className="flex justify-center items-center w-9 h-6 rounded bg-[#eee]">
               {p}
