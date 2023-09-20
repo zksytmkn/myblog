@@ -11,7 +11,9 @@ export default function Article({ data }: Props) {
     <main className="flex flex-col justify-between items-center">
       <h1 className="text-4xl mb-6 text-center">{data.title}</h1>
       <Tags tags={data.tags} />
-      <p className="my-6 mx-10 text-[#999] text-center">{data.description}</p>
+      <p className="my-6 mx-10 sm:mx-0 sm:mt-6 sm:mb-10 text-[#999] text-center">
+        {data.description}
+      </p>
       <div className="flex items-center mb-10 sm:mb-16 text-sm sm:text-base">
         {data.writer && (
           <div className="flex justify-center items-center border-r border-solid border-[#ccc] pr-6 sm:pr-10 mr-6 sm:mr-10">

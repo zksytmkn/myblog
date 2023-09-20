@@ -8,7 +8,7 @@ type Props = {
   article: Article
 }
 
-export default function ListItem({ article }: Props) {
+export default function ArticleListItem({ article }: Props) {
   return (
     <li className="mb-10">
       <Link href={`/articles/${article.id}`} className="block sm:flex gap-40">
