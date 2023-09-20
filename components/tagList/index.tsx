@@ -1,12 +1,12 @@
 import { Tag } from '@/libs/microcms'
-import TagItem from '@/components/tagItem'
+import TagListItem from '@/components/tagListItem'
 
 type Props = {
   tags?: Tag[]
   hasLink?: boolean
 }
 
-export default function Tags({ tags, hasLink = true }: Props) {
+export default function TagList({ tags, hasLink = true }: Props) {
   if (!tags) {
     return null
   }
@@ -14,7 +14,7 @@ export default function Tags({ tags, hasLink = true }: Props) {
     <ul className="flex gap-2 my-2">
       {tags.map((tag) => (
         <li key={tag.id}>
-          <TagItem tag={tag} hasLink={hasLink} />
+          <TagListItem tag={tag} hasLink={hasLink} />
         </li>
       ))}
     </ul>

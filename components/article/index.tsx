@@ -1,6 +1,6 @@
 import { type Article } from '@/libs/microcms'
 import { formatDate, formatRichText } from '@/libs/utils'
-import Tags from '@/components/tags'
+import TagList from '@/components/tagList'
 
 type Props = {
   data: Article
@@ -10,7 +10,7 @@ export default function Article({ data }: Props) {
   return (
     <main className="flex flex-col justify-between items-center">
       <h1 className="text-4xl mb-6 text-center">{data.title}</h1>
-      <Tags tags={data.tags} />
+      <TagList tags={data.tags} />
       <p className="my-6 mx-10 sm:mx-0 sm:mt-6 sm:mb-10 text-[#999] text-center">
         {data.description}
       </p>
