@@ -5,12 +5,14 @@ type Props = {
   totalCount: number
   current?: number
   basePath?: string
+  q?: string
 }
 
 export default function Pagination({
   totalCount,
   current = 1,
   basePath = '',
+  q,
 }: Props) {
   const pages = Array.from({ length: Math.ceil(totalCount / LIMIT) }).map(
     (_, i) => i + 1
@@ -21,7 +23,7 @@ export default function Pagination({
         <li className="mx-1">
           {current !== p ? (
             <Link
-              href={`${basePath}/p/${p}`}
+              href={`${basePath}/p/${p}` + (q ? `?q=${q}` : '')}
               className="flex justify-center items-center w-9 h-6 rounded"
             >
               {p}
