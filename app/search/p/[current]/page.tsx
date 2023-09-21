@@ -1,26 +1,30 @@
+import { LIMIT } from '@/constants'
 import { getList } from '@/libs/microcms'
 import ArticleList from '@/components/articleList'
 import Pagination from '@/components/pagination'
 
 type Props = {
+  params: {
+    current: string
+  }
   searchParams: {
     q?: string
   }
 }
 
-// ISRを無効にし、キャッシュを使用せずにSSRでページをレンダリングする
-export const revalidate = 0
-
-export default async function Page({ searchParams }: Props) {
+export default async function Page({ params, searchParams }: Props) {
+  const current = parseInt(params.current as string, 10)
   const data = await getList({
+    limit: LIMIT,
+    offset: LIMIT * (current - 1),
     q: searchParams.q,
   })
-
   return (
     <>
       <ArticleList articles={data.contents} />
       <Pagination
         totalCount={data.totalCount}
+        current={current}
         basePath="/search"
         q={searchParams.q}
       />
