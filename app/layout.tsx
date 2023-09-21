@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
+import { LIMIT } from '@/constants'
+import { getTagList } from '@/libs/microcms'
+import Nav from '@/components/nav'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -11,16 +14,20 @@ export const metadata: Metadata = {
   description: 'A simple blog presented by microCMS',
 }
 
-export default function RootLayout({
-  children,
-}: {
+type Props = {
   children: React.ReactNode
-}) {
+}
+
+export default async function RootLayout({ children }: Props) {
+  const tags = await getTagList({
+    limit: LIMIT,
+  })
+
   return (
     <html lang="ja">
       <body className={inter.className}>
         <head />
-        <header className="py-4 px-6">
+        <header className="pt-4 px-6 pb-2">
           <Link href="/">
             <Image
               src="/logo.svg"
@@ -32,6 +39,7 @@ export default function RootLayout({
             />
           </Link>
         </header>
+        <Nav tags={tags.contents} />
         <main className="w-auto sm:w-[720px] p-6 sm:p-0 mx-auto">
           {children}
         </main>

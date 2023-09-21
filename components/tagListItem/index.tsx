@@ -11,13 +11,15 @@ export default function TagListItem({ tag, hasLink = true }: Props) {
     return (
       <Link
         href={`/tags/${tag.id}`}
-        className="bg-[#f3f3f3] py-1 px-2 text-xs rounded"
+        className="bg-[#f3f3f3] py-1 px-2 text-xs rounded whitespace-nowrap"
       >
         #{tag.name}
       </Link>
     )
   }
   return (
-    <span className="bg-[#f3f3f3] py-1 px-2 text-xs rounded">#{tag.name}</span>
+    <span className="bg-[#f3f3f3] py-1 px-2 text-xs rounded whitespace-nowrap">
+      #{tag.name}
+    </span>
   )
 }
