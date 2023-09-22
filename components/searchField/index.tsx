@@ -1,5 +1,6 @@
 'use client'
 
+import { useSearchParams } from 'next/navigation'
 import { useCallback, useRef, useState } from 'react'
 
 export default function SearchField() {
@@ -15,16 +16,25 @@ export default function SearchField() {
     [composing]
   )
   const inputRef = useRef<HTMLInputElement>(null)
+  const searchParams = useSearchParams()
+  const defaultQuery = searchParams.get('q') || ''
+
   return (
     <input
       type="search"
       name="q"
       ref={inputRef}
-      className="py-0 px-6 border-y border-x border-solid border-[#ccc] rounded-2xl w-full sm:w-[600px] height-[40px] box-border my-0 mx-6 sm:mx-0"
+      className="py-0 pr-6 pl-12 border-y border-x border-solid border-[#ccc]
+      rounded-2xl w-full sm:w-[600px] height-[40px] box-border my-0 mx-6 sm:mx-0
+      bg-[url('/search.svg')] bg-no-repeat"
+      style={{
+        backgroundPosition: '16px center',
+      }}
       placeholder="Search..."
       onKeyDown={_onEnter}
       onCompositionStart={startComposition}
       onCompositionEnd={endComposition}
+      defaultValue={defaultQuery}
     />
   )
 }

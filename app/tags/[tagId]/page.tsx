@@ -9,12 +9,15 @@ type Props = {
   }
 }
 
+export const revalidate = 0
+
 export default async function Page({ params }: Props) {
   const { tagId } = params
   const data = await getList({
     limit: LIMIT,
     filters: `tags[contains]${tagId}`,
   })
+
   return (
     <>
       <ArticleList articles={data.contents} />

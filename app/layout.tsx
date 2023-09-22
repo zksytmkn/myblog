@@ -10,13 +10,24 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.BASE_URL || 'http://localhost:3000'),
   title: 'Simple Blog',
   description: 'A simple blog presented by microCMS',
+  openGraph: {
+    title: 'Simple Blog',
+    description: 'A simple blog presented by microCMS',
+    images: '/og-image.png',
+  },
+  alternates: {
+    canonical: '/',
+  },
 }
 
 type Props = {
   children: React.ReactNode
 }
+
+export const revalidate = 0
 
 export default async function RootLayout({ children }: Props) {
   const tags = await getTagList({

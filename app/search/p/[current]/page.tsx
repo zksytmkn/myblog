@@ -12,6 +12,8 @@ type Props = {
   }
 }
 
+export const revalidate = 0
+
 export default async function Page({ params, searchParams }: Props) {
   const current = parseInt(params.current as string, 10)
   const data = await getList({
@@ -19,6 +21,7 @@ export default async function Page({ params, searchParams }: Props) {
     offset: LIMIT * (current - 1),
     q: searchParams.q,
   })
+
   return (
     <>
       <ArticleList articles={data.contents} />

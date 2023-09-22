@@ -8,7 +8,6 @@ type Props = {
   }
 }
 
-// ISRを無効にし、キャッシュを使用せずにSSRでページをレンダリングする
 export const revalidate = 0
 
 export default async function Page({ searchParams }: Props) {
