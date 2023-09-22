@@ -8,8 +8,6 @@ type Props = {
   }
 }
 
-export const revalidate = 0
-
 export default async function TagsLayout({ children, params }: Props) {
   const { tagId } = params
   const tag = await getTag(tagId)
