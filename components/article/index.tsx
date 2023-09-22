@@ -103,9 +103,11 @@ export default function Article({ data }: Props) {
         [&_ol>li]:list-decimal
         [&_li]:my-2
         [&_a]:underline
+        [&>figure]:my-8
         [&>figure>img]:max-w-full
         [&>figure>img]:h-auto
-        [&>figure>img]:my-8
+        [&>figure>figcaption]:text-xs
+        [&>figure>figcaption]:text-[#999]
         [&>strong]:font-bold
         [&>blockquote]:border-l-4
         [&>blockquote]:border-solid
