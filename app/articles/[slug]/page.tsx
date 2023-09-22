@@ -1,9 +1,26 @@
+import { Metadata } from 'next'
 import { getDetail } from '@/libs/microcms'
 import Article from '@/components/article'
 
 type Props = {
   params: {
     slug: string
+  }
+}
+
+export const revalidate = 0
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const data = await getDetail(params.slug)
+
+  return {
+    title: data.title,
+    description: data.description,
+    openGraph: {
+      title: data.title,
+      description: data.description,
+      images: [data?.thumbnail?.url || ''],
+    },
   }
 }
 

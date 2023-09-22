@@ -17,6 +17,7 @@ export default function Pagination({
   const pages = Array.from({ length: Math.ceil(totalCount / LIMIT) }).map(
     (_, i) => i + 1
   )
+
   return (
     <ul className="flex justify-center items-center p-6 mt-6">
       {pages.map((p) => (

@@ -1,5 +1,6 @@
 import { type Article } from '@/libs/microcms'
-import { formatDate, formatRichText } from '@/libs/utils'
+import { formatRichText } from '@/libs/utils'
+import PublishedDate from '@/components/date'
 import TagList from '@/components/tagList'
 
 type Props = {
@@ -33,9 +34,7 @@ export default function Article({ data }: Props) {
             <span className="ml-4">{data.writer?.name}</span>
           </div>
         )}
-        <div>
-          <time>{formatDate(data.publishedAt || data.createdAt)}</time>
-        </div>
+        <PublishedDate date={data.publishedAt || data.createdAt} />
       </div>
       <picture>
         <source

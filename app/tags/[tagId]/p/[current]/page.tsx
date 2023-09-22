@@ -10,6 +10,8 @@ type Props = {
   }
 }
 
+export const revalidate = 0
+
 export default async function Page({ params }: Props) {
   const { tagId } = params
   const current = parseInt(params.current as string, 10)
@@ -18,6 +20,7 @@ export default async function Page({ params }: Props) {
     offset: LIMIT * (current - 1),
     filters: `tags[contains]${tagId}`,
   })
+
   return (
     <>
       <ArticleList articles={data.contents} />
