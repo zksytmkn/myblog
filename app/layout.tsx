@@ -34,7 +34,7 @@ export default async function RootLayout({ children }: Props) {
 
   return (
     <html lang="ja">
-      <body className={inter.className}>
+      <body className={`${inter.className} text-[#333]`}>
         <head />
         <Header />
         <Nav tags={tags.contents} />
