@@ -57,45 +57,42 @@ export default function Article({ data }: Props) {
       <div
         className="w-full sm:w-[720px]
         [&_first-child]:mt-0
-        [&>h1]:text-3xl
-        [&>h1]:font-bold
+        [&>h1]:text-[2rem]
         [&>h1]:mt-9
         [&>h1]:mb-4
         [&>h1]:border-b
         [&>h1]:border-solid
         [&>h1]:border-[#ccc]
         [&>h2]:text-2xl
-        [&>h2]:font-bold
         [&>h2]:mt-9
         [&>h2]:mb-4
         [&>h3]:text-xl
-        [&>h3]:font-bold
         [&>h3]:mt-9
         [&>h3]:mb-4
         [&>h4]:text-lg
-        [&>h4]:font-bold
         [&>h4]:mt-9
         [&>h4]:mb-4
         [&>h5]:text-base
-        [&>h5]:font-bold
         [&>h5]:mt-9
         [&>h5]:mb-4
         [&>p]:mt-8
         [&>p]:mb-2
         [&>p]:leading-loose
-        [&>pre]:bg-[#f9f9f9]
-        [&>pre]:shadow-inner
-        [&>pre]:p-2
-        [&>pre]:rounded-sm
         [&>pre]:overflow-x-auto
+        [&_pre>code]:bg-[#f7f7f7]
         [&_pre>code]:block
         [&_pre>code]:overflow-x-auto
-        [&_pre>code]:bg-[#f7f7f7]
         [&_pre>code]:p-4
-        [&_pre>code]:rounded-lg
-        [&_ul]:my-2
+        [&_div[data-filename]]:before:inline-block
+        [&_div[data-filename]]:before:bg-[#f3f3f3]
+        [&_div[data-filename]]:before:content-[attr(data-filename)]
+        [&_div[data-filename]]:before:mt-4
+        [&_div[data-filename]]:before:font-mono
+        [&_div[data-filename]]:before:text-xs
+        [&_div[data-filename]]:before:py-1
+        [&_div[data-filename]]:before:px-4
+        [&_div[data-filename]]:before:rounded-t
         [&_ul]:ml-8
-        [&_ol]:my-2
         [&_ol]:ml-8
         [&>ul]:my-8
         [&>ol]:my-8
@@ -104,10 +101,10 @@ export default function Article({ data }: Props) {
         [&_li]:my-2
         [&_a]:underline
         [&>figure]:my-8
-        [&>figure>img]:max-w-full
-        [&>figure>img]:h-auto
-        [&>figure>figcaption]:text-xs
-        [&>figure>figcaption]:text-[#999]
+        [&>figure_img]:max-w-full
+        [&>figure_img]:h-auto
+        [&>figure_figcaption]:text-[0.8rem]
+        [&>figure_figcaption]:text-[#999]
         [&>strong]:font-bold
         [&>blockquote]:border-l-4
         [&>blockquote]:border-solid
@@ -121,11 +118,13 @@ export default function Article({ data }: Props) {
         [&>hr]:border-none
         [&>table]:w-full
         [&>table]:my-8
-        [&>table th]:bg-[#f7f7f7]
-        [&>table th]:text-left
-        [&>table th]:p-4
-        [&>table td]:text-left
-        [&>table td]:p-4"
+        [&>table_th]:bg-[#f7f7f7]
+        [&>table_th]:text-left
+        [&>table_th]:p-4
+        [&>table_th]:border
+        [&>table_td]:text-left
+        [&>table_td]:p-4
+        [&>table_td]:border"
         dangerouslySetInnerHTML={{
           __html: `${formatRichText(data.content)}`,
         }}
