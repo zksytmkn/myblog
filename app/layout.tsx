@@ -11,11 +11,11 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.BASE_URL || 'http://localhost:3000'),
-  title: 'Simple Blog',
-  description: 'A simple blog presented by microCMS',
+  title: 'Yoshimo Blog',
+  description: 'A yoshimo blog presented by yoshimo',
   openGraph: {
-    title: 'Simple Blog',
-    description: 'A simple blog presented by microCMS',
+    title: 'Yoshimo Blog',
+    description: 'A yoshimo blog presented by yoshimo',
     images: '/ogp.png',
   },
   alternates: {

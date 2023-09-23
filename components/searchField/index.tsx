@@ -25,7 +25,7 @@ export default function SearchField() {
       name="q"
       ref={inputRef}
       className="py-0 pr-6 pl-12 border-y border-x border-solid border-[#ccc]
-      rounded-2xl w-full sm:w-[600px] height-[40px] box-border my-0 mx-6 sm:mx-0
+      rounded-3xl w-full sm:w-[600px] h-10 box-border my-0 mx-6 sm:mx-0
       bg-[url('/search.svg')] bg-no-repeat"
       style={{
         backgroundPosition: '16px center',

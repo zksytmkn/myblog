@@ -7,7 +7,7 @@ export default function Header() {
       <Link href="/">
         <Image
           src="/logo.svg"
-          alt="SIMPLE"
+          alt="YOSHIMO"
           className="h-6 w-auto"
           width={348}
           height={133}
