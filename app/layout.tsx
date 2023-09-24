@@ -1,13 +1,10 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import { LIMIT } from '@/constants'
 import { getTagList } from '@/libs/microcms'
 import Footer from '@/components/footer'
 import Header from '@/components/header'
 import Nav from '@/components/nav'
 import './globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.BASE_URL || 'http://localhost:3000'),
@@ -34,8 +31,7 @@ export default async function RootLayout({ children }: Props) {
 
   return (
     <html lang="ja">
-      <body className={`${inter.className} text-[#333]`}>
-        <head />
+      <body className="text-[#333]">
         <Header />
         <Nav tags={tags.contents} />
         <main className="w-auto sm:w-[720px] p-6 sm:p-0 mx-auto">
