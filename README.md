@@ -1,15 +1,8 @@
-## Create new Next.js project
-```
-npx create-next-app --tailwind myblog --use-npm
-```
+## Yoshimo Blog
+**This is the first blog I've ever created.  
+Please check it out if you'd like.**
 
-## Commit Prefix
-|  Prefix  | Meaning |
-| -------- | ------- |
-| feat     | 新機能   |
-| fix      | バグ修正　　　|
-| docs     | ドキュメント修正 |
-| style    | 空白, フォーマット, セミコロン追加 |
-| refactor | リファクタリング |
-| perf     | パフォーマンス関連 |
-| test     | テスト関連 |
+## Reference
+I created this based on the reference from the following repository.  
+It was very helpful. Thank you.  
+https://github.com/microcmsio/nextjs-simple-blog-template
