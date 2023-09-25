@@ -3,17 +3,25 @@ import { getList } from '@/libs/microcms'
 import ArticleList from '@/components/articleList'
 import Pagination from '@/components/pagination'
 
-export const revalidate = 0
+type Props = {
+  params: {
+    current: string
+  }
+}
 
-export default async function Page() {
+export const revalidate = 60
+
+export default async function Page({ params }: Props) {
+  const current = parseInt(params.current as string, 10)
   const data = await getList({
     limit: LIMIT,
+    offset: LIMIT * (current - 1),
   })
 
   return (
     <>
       <ArticleList articles={data.contents} />
-      <Pagination totalCount={data.totalCount} />
+      <Pagination totalCount={data.totalCount} current={current} />
     </>
   )
 }
