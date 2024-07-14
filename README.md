@@ -1,6 +1,6 @@
 ## yoshimo blog
 
-Welcome to Yoshimo Blog.  
+Welcome to yoshimo blog.  
 This is the first blog I have created.  
 
 https://yoshimo-blog.vercel.app
